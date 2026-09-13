@@ -1,0 +1,445 @@
+/*
+ * Shared Reveal.js presentation styling for all Catppuccin flavours.
+ * Colour aliases are supplied by catppuccin-{flavour}.css.
+ * Highlight.js token colours intentionally live only in highlight/styles/.
+ */
+
+ aside.controls {
+    margin-bottom: 35px;
+}
+
+.conf-image {
+    float: left;
+    max-width: 2.5rem;
+    height: 100%;
+}
+
+table.hljs-ln {
+  width: 100%;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/fira-code-latin-ext.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/fira-code-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Hubballi";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/hubballi-latin-ext.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Hubballi";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/hubballi-latin.woff2") format("woff2");
+}
+
+:root {
+  --r-background-color: var(--ctp-base);
+  --r-main-font: "Hubballi", sans-serif;
+  --r-main-font-size: 36px;
+  --r-main-color: var(--ctp-text);
+  --r-block-margin: 20px;
+  --r-heading-margin: 0 0 1rem;
+  --r-heading-font: "Hubballi", sans-serif;
+  --r-heading-color: var(--ctp-mauve);
+  --r-heading-font-weight: 700;
+  --r-heading-line-height: 1;
+  --r-heading-letter-spacing: normal;
+  --r-heading-text-transform: none;
+  --r-heading-text-shadow: none;
+  --r-heading1-size: 2.65em;
+  --r-heading2-size: 1.7em;
+  --r-heading3-size: 1.3em;
+  --r-heading4-size: 1em;
+  --r-code-font: "Fira Code", monospace;
+  --r-link-color: var(--ctp-blue);
+  --r-link-color-dark: var(--ctp-sapphire);
+  --r-link-color-hover: var(--ctp-sky);
+  --r-selection-background-color: var(--ctp-pink);
+  --r-selection-color: var(--ctp-crust);
+}
+
+html,
+body,
+.reveal-viewport {
+  background: var(--ctp-base);
+  color: var(--ctp-text);
+}
+
+.reveal {
+  background:
+    radial-gradient(circle at 8% 10%, rgb(var(--ctp-mauve-rgb) / 0.10), transparent 22rem),
+    radial-gradient(circle at 94% 88%, rgb(var(--ctp-blue-rgb) / 0.08), transparent 25rem),
+    var(--ctp-base);
+  color: var(--ctp-text);
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides > section,
+.reveal .slides > section > section {
+  line-height: 1.25;
+  font-weight: inherit;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  color: var(--ctp-mauve);
+  font-family: var(--r-heading-font);
+  font-variant: small-caps;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-shadow: none;
+  word-wrap: break-word;
+}
+
+.reveal h1 { font-size: 2.65em; }
+.reveal h2 { font-size: 1.7em; }
+.reveal h3 { font-size: 1.3em; }
+.reveal h4 { font-size: 1em; }
+
+.reveal p {
+  margin: 0.55em 0;
+  line-height: 1.3;
+}
+
+.reveal a {
+  color: var(--ctp-blue);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.reveal a:hover,
+.reveal a:focus-visible {
+  color: var(--ctp-sky);
+  text-shadow: none;
+}
+
+.reveal strong,
+.reveal b {
+  color: var(--ctp-peach);
+  font-weight: 700;
+}
+
+.reveal em,
+.reveal i {
+  color: var(--ctp-maroon);
+  font-style: italic;
+}
+
+.reveal ul,
+.reveal ol,
+.reveal dl {
+  display: inline-block;
+  margin: 0 0 0 1.05em;
+  text-align: left;
+}
+
+.reveal ul { list-style-type: disc; }
+.reveal ol { list-style-type: decimal; }
+.reveal ul ul { list-style-type: square; }
+.reveal ul ul ul { list-style-type: circle; }
+
+.reveal li {
+  margin: 0.28em 0;
+  padding-left: 0.15em;
+}
+
+.reveal li::marker {
+  color: var(--ctp-green);
+  font-weight: 700;
+}
+
+.reveal ol li::marker {
+  color: var(--ctp-blue);
+}
+
+.reveal blockquote {
+  display: inline-block;
+  width: min(80%, 42em);
+  margin: 0.75em auto;
+  padding: 0.55em 0.9em 0.55em 1.25em;
+  color: var(--ctp-subtext1);
+  background: rgb(var(--ctp-mantle-rgb) / 0.78);
+  border: 0;
+  border-left: 0.22em solid var(--ctp-pink);
+  border-radius: 0 0.45rem 0.45rem 0;
+  box-shadow: 0 0.35rem 1.2rem rgb(var(--ctp-crust-rgb) / 0.18);
+  font-size: 0.86em;
+  font-style: italic;
+  text-align: left;
+}
+
+.reveal blockquote::before {
+  content: "“";
+  float: left;
+  margin: -0.05em 0.22em 0 -0.18em;
+  color: var(--ctp-pink);
+  font-size: 2.1em;
+  line-height: 0.8;
+}
+
+.reveal code {
+  color: var(--ctp-red);
+  background: var(--ctp-mantle);
+  border-radius: 0.25rem;
+  padding: 0.04em 0.2em;
+  font-family: var(--r-code-font);
+  font-size: 0.78em;
+  text-transform: none;
+}
+
+/* Layout only: syntax colours and code background come from the official Catppuccin Highlight.js CSS. */
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0.65em auto;
+  overflow: hidden;
+  background: transparent;
+  border: 1px solid var(--ctp-surface1);
+  border-radius: 0.65rem;
+  box-shadow: 0 0.45rem 1.5rem rgb(var(--ctp-crust-rgb) / 0.22);
+  font-family: var(--r-code-font);
+  font-size: 0.5em;
+  line-height: 1.45;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.reveal pre code,
+.reveal pre code.hljs {
+  display: block;
+  max-height: 28rem;
+  overflow: auto;
+  padding: 1.1rem 1.3rem;
+  border-radius: inherit;
+  font-family: var(--r-code-font);
+  font-size: 1em;
+  line-height: 1.45;
+  word-wrap: normal;
+}
+
+.reveal table {
+  margin: auto;
+  color: var(--ctp-text);
+  background: rgb(var(--ctp-mantle-rgb) / 0.72);
+  border: 1px solid var(--ctp-surface1);
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+.reveal table th {
+  color: var(--ctp-crust);
+  background: var(--ctp-blue);
+  font-weight: 700;
+}
+
+.reveal table th,
+.reveal table td {
+  padding: 0.28em 0.55em;
+  border-bottom: 1px solid var(--ctp-surface1);
+  text-align: left;
+}
+
+.reveal table tbody tr:nth-child(even) {
+  background: rgb(var(--ctp-surface0-rgb) / 0.55);
+}
+
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.reveal section img {
+  margin: 0.4em 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0.45rem;
+  box-shadow: 0 0.4rem 1.4rem rgb(var(--ctp-crust-rgb) / 0.20);
+}
+
+.reveal section img.plain,
+.reveal section img.adesso,
+.reveal section img.conf-image {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.reveal .controls {
+  color: var(--ctp-mauve);
+}
+
+.reveal .progress {
+  height: 0.28rem;
+  color: var(--ctp-blue);
+  background: rgb(var(--ctp-surface0-rgb) / 0.65);
+}
+
+.reveal .slide-number {
+  color: var(--ctp-subtext0);
+  background: rgb(var(--ctp-mantle-rgb) / 0.88);
+}
+
+.reveal .footer {
+  z-index: 5;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  height: 3rem;
+  color: var(--ctp-crust);
+  background: linear-gradient(90deg, var(--ctp-mauve), var(--ctp-blue), var(--ctp-teal));
+  font-size: 1.55rem;
+  line-height: 2.25rem;
+}
+
+.reveal .footer span {
+  width: 33.333%;
+  padding: 0.25rem 1rem 0.3rem;
+  text-align: center;
+}
+
+.reveal .footer span.speaker img.adesso {
+  float: right;
+  display: inline-block;
+  height: 2.5rem;
+  background: white;
+}
+
+.reveal .attribution {
+  color: var(--ctp-subtext0);
+  font-size: 1.5rem;
+}
+
+.reveal .small {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.reveal .imageblock.thumb {
+  padding: 10px;
+}
+
+.reveal aside.controls {
+  margin-bottom: 35px;
+}
+
+.reveal .conf-image {
+  float: left;
+  max-width: 2.5rem;
+}
+
+/* Title-slide visual signature: accent rule plus the four-flavour pastel dots. */
+.reveal #title-slide,
+.reveal .title-slide,
+.reveal .slides > section:first-child {
+  position: relative;
+}
+
+.reveal #title-slide h1,
+.reveal .title-slide h1,
+.reveal .slides > section:first-child h1 {
+  max-width: 10em;
+  color: var(--ctp-text);
+  font-size: 2.45em;
+  line-height: 0.96;
+}
+
+.reveal #title-slide h1::after,
+.reveal .title-slide h1::after,
+.reveal .slides > section:first-child h1::after {
+  content: "";
+  display: block;
+  width: 4.2em;
+  height: 0.12em;
+  margin-top: 0.28em;
+  background: linear-gradient(90deg, var(--ctp-pink), var(--ctp-mauve), var(--ctp-blue), var(--ctp-teal));
+  border-radius: 999px;
+}
+
+.reveal #title-slide::after,
+.reveal .title-slide::after,
+.reveal .slides > section:first-child::after {
+  content: "";
+  position: absolute;
+  right: 0.5rem;
+  bottom: 1.5rem;
+  width: 1rem;
+  height: 1rem;
+  background: var(--ctp-pink);
+  border-radius: 50%;
+  box-shadow:
+    1.55rem 0 var(--ctp-mauve),
+    3.1rem 0 var(--ctp-blue),
+    4.65rem 0 var(--ctp-teal);
+}
+
+.reveal section[data-background-image] h1,
+.reveal section[data-background-image] h2,
+.reveal section[data-background-image] blockquote {
+  color: var(--ctp-text);
+  text-shadow:
+    -1px -1px 0 var(--ctp-crust),
+    1px -1px 0 var(--ctp-crust),
+    -1px 1px 0 var(--ctp-crust),
+    1px 1px 0 var(--ctp-crust);
+}
+
+.reveal section.bright-background {
+  color: var(--ctp-latte-text);
+}
+
+.reveal section.dark-background {
+  color: var(--ctp-mocha-text);
+}
+
+::selection {
+  color: var(--ctp-crust);
+  background: var(--ctp-pink);
+  text-shadow: none;
+}
+
+@media print {
+  html,
+  body,
+  .reveal-viewport,
+  .reveal {
+    background: var(--ctp-base) !important;
+    color: var(--ctp-text) !important;
+  }
+}

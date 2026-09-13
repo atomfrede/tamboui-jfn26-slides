@@ -1,0 +1,110 @@
+== One counter. Three implementations.
+
+image::immediate-counter.png[]
+
+[.notes]
+--
+Using jbang for single file and less ceremony
+--
+
+== Level 1: Immediate Mode
+
+* Take care of the event loop
+* Read terminal events
+* Render widgets into the Buffer
+* You can control every detail
+
+== Level 1: Immediate Mode
+
+[source,java,highlight="1,2,3,4|6|7,8,9|10|14,15,16"]
+----
+try (var terminal = new Terminal<>(new PanamaBackend())) {
+    var backend = terminal.backend();
+    backend.enableRawMode(); backend.enterAlternateScreen();
+    backend.hideCursor();
+    // ...
+    while(running){
+        terminal.draw(frame -> {
+            frame.renderWidget(widget, frame.area());
+        });
+        int input = backend.read(100);
+        switch (input) {
+            // ...
+            case 3:   // Ctrl+C in raw mode
+            case -1:  // End of input
+                running = false; break;
+}}} // whole sample 100 LOC      
+----
+
+[.notes]
+--
+* Maximum Control how, when and what is rendered, happening 
+* this should be the escape hatch, not the default
+* the overall sample has 100 LOC
+--
+
+== Level 2: TuiRunner
+
+* Managed event loop
+* Animation ticks
+* Resize/redraw
+* Thread-safe `runOnRenderThread`
+
+== Level 2: TuiRunner
+
+[source,java,highlight="2|5|6,7|10,11"]
+----
+public class TuiRunnerCounter {
+    private int counter, ticks = 0;
+
+    public void run() throws Exception {
+        var config = TuiConfig.builder().tickRate(Duration.ofMillis(100)).build();
+        try (var tui = TuiRunner.create(config)) {
+            tui.run(this::handleEvent, this::render);
+        }
+    }
+    private boolean handleEvent(Event event, TuiRunner runner) { /**...**/ }
+    private void render(Frame frame) { /** ... **/}
+} // whole sample 50 LOC
+----
+
+[.notes]
+--
+* A lot of stuff has disappeared
+* State and rendering remains the sample
+* The whole "infrastructure" has vanished
+* Thread-safe, resize
+--
+
+== Level 3: Toolkit
+
+* Declarative element tree 
+* Event routing
+* Action handlers
+
+== Level 3: Toolkit
+
+[source,java,highlight="1|2,3,6,7|4|9-15"]
+----
+public class ToolkitCounter extends ToolkitApp {
+    @Override
+    protected TuiConfig configure() {
+        return TuiConfig.builder().tickRate(Duration.ofMillis(100)).build();
+    }
+    @Override
+    protected Element render() {
+        return panel(/*...*/).rounded().id("counter").focusable()
+            .onKeyEvent(event -> {
+                if (event.isChar('+')) {
+                    counter++;
+                    return EventResult.HANDLED; }
+                // ...
+                // Leave q unhandled so ToolkitRunner performs its standard quit handling.
+                return EventResult.UNHANDLED;
+            });
+}}
+----
+
+
+
+

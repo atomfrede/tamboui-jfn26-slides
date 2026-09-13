@@ -1,0 +1,85 @@
+== Java, in the terminal?
+
+== Where do developers live?
+
+image::terminal.png[background, size=contain]
+
+[.notes]
+--
+OpenCode, Claude Code, Codex, Git, Docker, Kubernetes and build tools
+all meet us in the terminal.
+
+The terminal is no longer just where applications are started.
+It increasingly is the application.
+--
+
+== Movement towards the terminal 
+
+* (AI) development tools
+* Keyboard-first workflows
+* Windows has a real terminal now 
+* Lightweight (hopefully)
+* Fast feedback
+
+[.notes]
+--
+TUIs are not returning because developers are nostalgic.
+
+They work well for modern, tool-oriented workflows.
+--
+
+== Java, our beloved language is everywhere...
+
+[%step]
+* ✅ Server Backends
+* ✅ Cloud  
+* ✅ Mobile 
+* ✅ Agents
+* ⛔ Terminal Interfaces
+
+[.notes]
+--
+If not java, the jvm is everywhere, except terminal interfaces, but why?
+
+There is Picocli, but this for CLIs
+
+--
+
+== ...except in the terminal
+
+[%step]
+* Go has Charm and Bubble Tea
+* Python has Textual
+* Rust has Ratatui
+* Java has ... 🫙
+
+== Pride and Prejudice
+
+* Java is too slow to start
+* Too much ceremony
+* Distribution is a nightmare
+* Too verbose!
+
+== Modern Java
+
+* Java is too slow to start! *Java is fast, GraalVM even faster*
+* Too much ceremony! *JBang anyone?*
+* Distribution is a nightmare! *JReleaser?*
+* Too verbose! *Modern Java says no (or kotlin)*
+
+[.notes]
+--
+There is no reason anymore why there should be no TUI framework in/for Java!
+
+Except its not that easy to build
+--
+
+
+
+
+
+
+
+
+
+

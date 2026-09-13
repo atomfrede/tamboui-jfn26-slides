@@ -1,0 +1,93 @@
+= Hey Mr. TamboU(r)Ine man, create a TUI for me
+// :revealjs_theme: white
+:revealjs_customtheme: css/shades-of-grey.css
+:revealjs_controls: true
+:revealjs_progress: false
+:revealjs_slideNumber: false
+:revealjs_history: true
+:revealjs_center: true
+:revealjs_transition: fade
+:revealjs_controls: true
+:source-highlighter: highlight.js
+:revealjs_customtheme: css/catppuccin-latte.css
+:highlightjs-theme: highlight/styles/catppuccin-latte.css
+:revealjs_totalTime: 3000
+:highlightjsdir: highlight
+:icons: font
+:imagesdir: images/
+:customcss: css/catppuccin-latte.css
+:docinfo: private
+
+:conf-name: #jfn26
+:conf-url: https://javaforumnord.de/2026
+:conf-alt: Javaforum Nord 26
+:conf-logo: images/jfn.png
+:host-logo-style: background-color: transparent; border-color: transparent !important;
+:talk-tag: #tamboui #tui #cli
+:mastodon-handle: @atomfrede@mastodon.social
+include::_shared/_title_footer.adoc[]
+
+
+[%notitle]
+== Are you still awake?
+
+[.big]
+Press any key to start...
+
+
+== Hey Mr. TamboU(r)Ine Man
+
+Hey Mr. TamboU(r)Ine man, create a TUI for me
+
+In the jingle jangle JVM I'll come followin' you
+
+[.notes]
+--
+This is Java. Real, pure java
+
+We'll look at how this is possible
+--
+
+[.columns]
+== About Me
+
+[.column.is-two-thirds]
+* 👨‍👩‍👧‍👦 🏊‍♂️ 🚴 🏃
+* Software Architect https://www.adesso.de/de/[@adesso SE]
+* https://jug-pb.gitlab.io/[JUG Paderborn] Co-Organizer
+* https://www.jhipster.tech/[JHipster] Board Member
+
+[.column]
+image:duke-pb.png[width=200]
+image:jhipster.png[width=200]
+
+[.notes]
+--
+
+--
+
+== Agenda
+
+* Java, in the terminal?
+* TamboUI
+* Counter Modes
+
+
+include::01-terminal.adoc[]
+include::02-tamboui.adoc[]
+include::03-counter.adoc[]
+include::04-capabilities.adoc[]
+include::05-samples.adoc[]
+
+
+
+
+
+
+
+
+
+
+
+
+

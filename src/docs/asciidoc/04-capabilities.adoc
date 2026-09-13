@@ -1,0 +1,50 @@
+== Not just green text 
+
+* Responsive layouts
+* Keyboard and mouse input
+* Unicode, emoji
+* TCSS styling
+* Markdown/Text streaming
+* Images, visualizations
+* Testing
+
+[.notes]
+--
+* I have played around with it in the last couple of weeks 
+* created multiple sample applications
+* Quarkus Starter TUI, Simple Ollama Chat, Fitpub TUI, BootUI TUI
+--
+
+== More than Single Files
+
+* Widgets (there are a lot of)
+* Layout
+* Classic MVC (Swing anyone?)
+
+[.notes]
+--
+A lot of good old swing development vibes
+--
+
+== MVC, what was that?
+
+[source,text]
+----
+┌─────────────┐     reads      ┌─────────────┐
+│  Controller │ ◄──────────────│    View     │
+│   (State)   │                │  (Element)  │
+└─────────────┘                └─────────────┘
+       ▲                              │
+       │         dispatches           │
+       └──────────────────────────────┘
+                 events
+----
+
+[.notes]
+--
+Controller holds the State
+View is a PURE function and renders from the State
+Publish events, controller changes state based on events
+View renders again based on new state
+--
+

@@ -1,0 +1,80 @@
+== Quakus TUI
+
+* Forms and editable fields
+* Search and filtered lists
+* Foxus and keyboard navigation
+* Background network or file operations
+
+== Quarkus TUI
+
+[source,java,highlight="1,2|4,5|6"]
+----
+private void postToUi(Runnable action) {
+    runner().runOnRenderThread(action);
+}
+Executors.newVirtualThreadPerTaskExecutor().submit(() -> {
+    Catalog catalog = api.loadCatalog();
+    postToUi(() -> { extensions = catalog.extensions(); });
+    }
+});
+----
+
+== Ollama Chat
+
+* Streaming markdown
+* Layouting
+
+[source,java,highlight=1-4|8]
+----
+var layout = Toolkit.dock()
+    .top(header, Toolkit.length(3))
+    .center(conversation)
+    .bottom(Toolkit.column().add(input).add(footer), Toolkit.length(4));
+// Handles partial markdown gracefully, 
+// sanitize and trim before parse, stream of markdown can be displayed safely on every frame
+var view = MarkdownView.builder().source(source)    
+----
+
+[.notes]
+--
+* Layout can be created very Simple
+* MarkdownView
+--
+
+== Fitpub TUI
+
+[quote,https://fitpub.social/about]
+____
+FitPub is a free and open platform for sports and outdoor activities. Track your adventures, share your experiences, and connect with other active people.
+Built on open standards and powered by ActivityPub, FitPub is part of the Fediverse – a network of independent platforms that communicate with each other.
+____
+
+* There is no official public API, so the TUI will break eventually (for now)
+
+== Fitpub TUI
+
+* Stylesheets
+* Main/Detail View
+* Sparklines
+
+[source,java]
+----
+StyleEngine engine = StyleEngine.create();
+engine.loadStylesheet("latte", "/themes/catppuccin-latte.tcss");
+// ...
+Toolkit.text(selected.displayName() + "  @" + selected.username()).addClass("athlete")
+----
+
+[source,css]
+----
+$mauve: #8839ef;
+.athlete {
+    color: $mauve;
+}
+----
+
+[%notitle]
+== Fitpub TUI
+
+image::fitpub-latte.png[background, size=contain]
+

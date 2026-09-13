@@ -1,0 +1,22 @@
+.attribution {
+    color: #64748b;
+    font-size: 1.5rem;
+}
+
+.imageblock.thumb {
+    padding: 10px;
+}
+
+aside.controls {
+    margin-bottom: 35px;
+}
+
+.conf-image {
+    float: left;
+    max-width: 2.5rem;
+    height: 100%;
+}
+
+.rebeccapurple.background {
+  background-color: rebeccapurple;
+}

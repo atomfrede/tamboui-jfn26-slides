@@ -1,0 +1,134 @@
+[%notitle]
+[.rebeccapurple.background]
+== TamboUI
+
+image::tamboui_logo.png[background, size=contain]
+
+[%step]
+[source]
+----
+jbang demos@tamboui
+----
+
+[.notes]
+--
+Created as an experiment by gradle and redhat folks with claude as a port of Rusts Ratatui
+
+currenty in 0.4.0 or 0.5.0 snapshot as developed as open source
+
+--
+
+== TamboUI
+
+[quote,github.com/tamboui/tamboui]
+____
+TamboUI brings the TUI paradigms seen in things like Rust's ratatui or Go's bubbletea to the Java ecosystem.
+TamboUI is pronounced like "tambouille" (\tɑ̃.buj) in French, or "tan-bouy".
+It provides a comprehensive set of widgets and a layout system for building rich terminal applications with modern Java idioms.
+____
+
+
+[%step]
+NOTE: TamboUI is still experimental and under active development.
+
+[.notes]
+--
+TamboUI started at the end of 2025 and became publicly available
+in early 2026.
+
+It brings established ideas from Ratatui and Textual to the JVM.
+--
+
+== API Levels
+
+[cols="1,2,2"]
+|===
+| API | Responsibility | Use
+
+| Toolkit
+| Declarative components, focus and event routing
+| Building most applications
+
+| TuiRunner
+| Managed event loop and terminal lifecycle
+| Custom event handling without boilerplate
+
+| Immediate Mode
+| Direct rendering and complete control
+| Maximum control and speed or you want to create new widgets
+|===
+
+[.notes]
+--
+The layers are complementary.
+
+We will briefly look below the surface, but mostly look at toolkit level to get a running TUI with ease
+--
+
+== Backends
+
+[cols="1,2,2]
+|===
+|Module | Description | Requires
+
+|`tamboui-jline3-backend`
+| Reliable default on all platforms 
+| Java 8+
+
+|`tamboui-panama-backend`
+| Panama (FFM) without third-party dependencies
+| Java 22+
+
+|`tamboui-aesh-backend`
+| Aesh based, for SSH/Browser-hosted terminals 
+| Java 8+
+
+|===
+
+[.notes]
+--
+All are libraries for handling console input. If you want to be safe with regards to system and jdk version use jline3
+
+I tried to use panama where applicable
+--
+
+== How do rendering work?
+
+[.big]
+Input -> Event or Action -> State -> Render -> Buffer diff -> Terminal
+
+[.notes]
+--
+Rect. Buffer of Cells. Each Cell contains a symbol (and its style)
+
+Tamboui compates each frame and creates a diff an only re-renders the changes
+--
+
+== Dig deeperfootnote:[https://tamboui.github.io/devoxx-france-2026]
+
+[source,java,highlight="1|2|3"]
+----
+var buffer = Buffer.empty(new Rect(0,0,80,24));
+buffer.set(0, 0, new Cell("H", Style.EMPTY.fg(Color.RED).bold()));
+var area = new Rect(10, 5, 60, 14)
+----
+
+
+[.notes]
+--
+* A Buffer is a 2D grid of Cells
+* A Cell has a symbol and a Style
+* Rect: x, y, width, height, used everywhere for layout
+* But how does it look like in real live?
+--
+
+
+
+
+
+
+
+
+
+
+ 
