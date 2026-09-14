@@ -70,7 +70,10 @@ image:jhipster.png[width=200]
 
 * Java, in the terminal?
 * TamboUI
-* Counter Modes
+* Api Levels
+* Features
+* Samples 
+* Shipping & Conclusion
 
 
 include::01-terminal.adoc[]
@@ -78,6 +81,8 @@ include::02-tamboui.adoc[]
 include::03-counter.adoc[]
 include::04-capabilities.adoc[]
 include::05-samples.adoc[]
+include::06-shipping.adoc[]
+include::07-conclusion.adoc[]
 
 
 
