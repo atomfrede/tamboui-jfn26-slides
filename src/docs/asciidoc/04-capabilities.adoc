@@ -1,4 +1,4 @@
-== Not just green text 
+== Features - more than just green text
 
 * Responsive layouts
 * Keyboard and mouse input
