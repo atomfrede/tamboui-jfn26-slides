@@ -1,6 +1,7 @@
 == What's missing?
 
 * Tests
+* Debugging
 * Distribution
 
 == Testing
@@ -28,6 +29,12 @@ void keyboardShortcutsUpdateApplicationState() throws Exception {
     }
 }
 ----
+
+== Debugging
+
+* Maybe the main "pain point"
+* Most IDEs do not have a real terminal (IDEA, Eclipse)
+* VS Code worked best with least issues
 
 == Distribution
 

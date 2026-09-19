@@ -414,28 +414,48 @@ ul.byline li + li {
   margin-top: 0.25em;
 }
 </style></head><body><div class="reveal"><div class="slides"><section id="_quakus_tui"><h2>Quakus TUI</h2><div class="slide-content"><div class="ulist"><ul><li><p>Forms and editable fields</p></li><li><p>Search and filtered lists</p></li><li><p>Foxus and keyboard navigation</p></li><li><p>Background network or file operations</p></li></ul></div></div></section>
-<section id="_quarkus_tui"><h2>Quarkus TUI</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-java" data-lang="java">private void postToUi(Runnable action) {
+<section id="_quarkus_tui"><h2>Quarkus TUI</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-java" data-lang="java">@Override
+protected void onStart() {
+    reloadCatalog();
+}
+private void postToUi(Runnable action) {
     runner().runOnRenderThread(action);
 }
+//...
 Executors.newVirtualThreadPerTaskExecutor().submit(() -&gt; {
     Catalog catalog = api.loadCatalog();
-    postToUi(() -&gt; { extensions = catalog.extensions(); });
+    postToUi(() -&gt; { presets = catalog.presets(); });
     }
 });</code></pre></div></div></div></section>
-<section id="_ollama_chat"><h2>Ollama Chat</h2><div class="slide-content"><div class="ulist"><ul><li><p>Streaming markdown</p></li><li><p>Layouting</p></li></ul></div>
+<section id="_quarkus_tui_2"><h2>Quarkus TUI</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-java" data-lang="java">var groupId = new TextInputState("org.acme");
+ListElement&lt;?&gt; presetList = list()
+    .autoScroll().scrollbar()
+    .highlightColor(Color.CYAN).highlightSymbol("› ")
+    .id("catalog-list").focusable().fill();
+//...
+textInput(groupId).id("group-id").title("Group ID")
+//...
+presetList.items(presets)</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>There is no select input in the toolkit api (yet)
+Only via form or manual select (no state handling)</p></div></aside></div></section>
+<section id="_quarkus_tui_3" data-background-image="quarkus-tui.png" data-background-size="contain"></section>
+<section id="_ollama_chat"><h2>Ollama Chat</h2><div class="slide-content"><div class="ulist"><ul><li><p>Streaming markdown</p></li><li><p>Layouts</p></li></ul></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code class="language-java" data-lang="java">var layout = Toolkit.dock()
     .top(header, Toolkit.length(3))
     .center(conversation)
     .bottom(Toolkit.column().add(input).add(footer), Toolkit.length(4));
 // Handles partial markdown gracefully,
-// sanitize and trim before parse, stream of markdown can be displayed safely on every frame
+// sanitize and trim before parse,
+// stream of markdown can be displayed safely on every frame
+// NEW: can also highlight source code
 var view = MarkdownView.builder().source(source)</code></pre></div></div>
 <aside class="notes"><div class="ulist"><ul><li><p>Layout can be created very Simple</p></li><li><p>MarkdownView</p></li></ul></div></aside></div></section>
+<section id="_ollama_chat_2" data-background-image="ollama-chat-2.png" data-background-size="contain"></section>
 <section id="_fitpub_tui"><h2>Fitpub TUI</h2><div class="slide-content"><div class="quoteblock"><blockquote><div class="paragraph"><p>FitPub is a free and open platform for sports and outdoor activities. Track your adventures, share your experiences, and connect with other active people.
 Built on open standards and powered by ActivityPub, FitPub is part of the Fediverse – a network of independent platforms that communicate with each other.</p></div></blockquote><div class="attribution">&#8212; https://fitpub.social/about</div></div>
 <div class="ulist"><ul><li><p>There is no official public API, so the TUI will break eventually (for now)</p></li></ul></div></div></section>
 <section id="_fitpub_tui_2"><h2>Fitpub TUI</h2><div class="slide-content"><div class="ulist"><ul><li><p>Stylesheets</p></li><li><p>Main/Detail View</p></li><li><p>Lists</p></li><li><p>Graphs</p></li></ul></div></div></section>
-<section id="_stylesheets"><h2>Stylesheets</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-java" data-lang="java">StyleEngine engine = StyleEngine.create();
+<section id="_stylesheets"><h2>Stylesheets</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-java" data-lang="java">var engine = StyleEngine.create();
 engine.loadStylesheet("latte", "/themes/catppuccin-latte.tcss");
 // ...
 Toolkit.text(selected.displayName() + "  @" + selected.username()).addClass("athlete")</code></pre></div></div>
@@ -453,7 +473,7 @@ ListElement&lt;Activity&gt; activityList = list()
     .scrollbar();
 
 // Events handled in controller to track selection</code></pre></div></div></div></section>
-<section id="_graphs"><h2>Graphs</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-java" data-lang="java">Dataset dataset = Dataset.builder().data(points)
+<section id="_graphs"><h2>Graphs</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-java" data-lang="java">var dataset = Dataset.builder().data(points)
     .graphType(GraphType.BAR)
     .style(dataColor).build();
 
@@ -465,7 +485,7 @@ return chart().dataset(dataset)
     .addClass(cssClass)
     .fill();</code></pre></div></div></div></section>
 <section id="_fitpub_tui_3" data-background-image="fitpub-latte.png" data-background-size="contain"></section>
-<section id="_lessons_learned"><h2>Lessons Learned</h2><div class="slide-content"><div class="ulist"><ul><li><p>Minimize allocations in render</p></li><li><p>Use primitive arrays over collections</p></li><li><p>Keep state classes simple</p></li><li><p>Methods for modification</p></li><li><p>Immutable state/records for thread safety</p></li></ul></div></div></section></div></div><script src="reveal/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+<section id="_lessons_learned"><h2>Lessons Learned</h2><div class="slide-content"><div class="ulist"><ul><li><p>Minimize allocations in render</p></li><li><p>Use primitive arrays over collections</p></li><li><p>Keep state classes simple</p></li><li><p>Methods for modification</p></li><li><p>Immutable state/records for thread safety</p></li><li><p>Get to know the existing widget library (!!)</p></li></ul></div></div></section></div></div><script src="reveal/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;

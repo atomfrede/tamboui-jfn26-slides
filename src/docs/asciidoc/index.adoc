@@ -1,6 +1,6 @@
 = Hey Mr. TamboU(r)Ine man, create a TUI for me
 // :revealjs_theme: white
-:revealjs_customtheme: css/shades-of-grey.css
+// :revealjs_customtheme: css/shades-of-grey.css
 :revealjs_controls: true
 :revealjs_progress: false
 :revealjs_slideNumber: false
@@ -15,7 +15,7 @@
 :highlightjsdir: highlight
 :icons: font
 :imagesdir: images/
-:customcss: css/catppuccin-latte.css
+// :customcss: css/catppuccin-latte.css
 :docinfo: private
 
 :conf-name: #jfn26

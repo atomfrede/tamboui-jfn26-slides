@@ -1,6 +1,6 @@
 == Conclusion
 
-* A TUI is a user interface—not a fancy `println`, more than a CLI
+* A TUI is a user interface - not a fancy `println`, more than a CLI
 * Start with the Toolkit and move lower when necessary
 * Java now belongs in the modern terminal
 * TamboUI has a rich set of widgets to create nice and fast TUIs with ease
@@ -11,20 +11,55 @@ Thats why cli is not enough
 it requires more powerful framework
 --
 
+[%notitle]
+== Stars
 
-== Create a tui for me
+image::star-history.png[background, size=contain]
 
+
+[.columns]
+== Create a TUI for me
+
+[.column]
 [source, shell]
 ----
 jbang demos@tamboui
 ----
 
-* tamboui.dev/
+
+[.column]
+
+* Samples ➡️
+* tamboui.dev
 * atomfrede.github.io/tamboui-jfn26-slides
 * github.com/atomfrede/tamboui-jfn26-samples
 
+[.column]
+image::samples-github-qr-code.png[200,200]
 
+
+[.notes]
+--
+Try it out with jbang and just one command
+Find my samples on github (or codeberg)
+--
+
+
+[.columns]
 == Questions
 
-[.big]
-In the jingle jangle JVM  I'll come followin' you 🎶
+[.column]
+* Questions⁉️
+* Slides ➡️
+
+[.column]
+image::slides-qr-code.png[250,250]
+
+[.notes]
+--
+Thanks for taking part in the last session for today
+after a long day attending another talk is great
+--
+
+
+

@@ -413,7 +413,7 @@ ul.byline {
 ul.byline li + li {
   margin-top: 0.25em;
 }
-</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/v4-shims.min.css"><link rel="stylesheet" href="css/catppuccin-latte.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Hey Mr. TamboU(r)Ine man, create a TUI for me</h1><div class="preamble">  <div class="footer">
+</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/v4-shims.min.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Hey Mr. TamboU(r)Ine man, create a TUI for me</h1><div class="preamble">  <div class="footer">
             <span class="conference">
     <a href="{conf_url}" title="Javaforum Nord 26">
                     <img class="conf-image" src="images/jfn.png" height="3rem" alt="Javaforum Nord 26">
@@ -554,28 +554,48 @@ View is a PURE function and renders from the State
 Publish events, controller changes state based on events
 View renders again based on new state</p></div></aside></div></section>
 <section id="_quakus_tui"><h2>Quakus TUI</h2><div class="slide-content"><div class="ulist"><ul><li><p>Forms and editable fields</p></li><li><p>Search and filtered lists</p></li><li><p>Foxus and keyboard navigation</p></li><li><p>Background network or file operations</p></li></ul></div></div></section>
-<section id="_quarkus_tui"><h2>Quarkus TUI</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="1,2|4,5|6" data-lang="java">private void postToUi(Runnable action) {
+<section id="_quarkus_tui"><h2>Quarkus TUI</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="1,2,3|5,6|8,9,10" data-lang="java">@Override
+protected void onStart() {
+    reloadCatalog();
+}
+private void postToUi(Runnable action) {
     runner().runOnRenderThread(action);
 }
+//...
 Executors.newVirtualThreadPerTaskExecutor().submit(() -&gt; {
     Catalog catalog = api.loadCatalog();
-    postToUi(() -&gt; { extensions = catalog.extensions(); });
+    postToUi(() -&gt; { presets = catalog.presets(); });
     }
 });</code></pre></div></div></div></section>
-<section id="_ollama_chat"><h2>Ollama Chat</h2><div class="slide-content"><div class="ulist"><ul><li><p>Streaming markdown</p></li><li><p>Layouting</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="1,2,3,4|8" data-lang="java">var layout = Toolkit.dock()
+<section id="_quarkus_tui_2"><h2>Quarkus TUI</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-lang="java">var groupId = new TextInputState("org.acme");
+ListElement&lt;?&gt; presetList = list()
+    .autoScroll().scrollbar()
+    .highlightColor(Color.CYAN).highlightSymbol("› ")
+    .id("catalog-list").focusable().fill();
+//...
+textInput(groupId).id("group-id").title("Group ID")
+//...
+presetList.items(presets)</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>There is no select input in the toolkit api (yet)
+Only via form or manual select (no state handling)</p></div></aside></div></section>
+<section id="_quarkus_tui_3" data-background-image="images/quarkus-tui.png" data-background-size="contain"></section>
+<section id="_ollama_chat"><h2>Ollama Chat</h2><div class="slide-content"><div class="ulist"><ul><li><p>Streaming markdown</p></li><li><p>Layouts</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="1,2,3,4|9" data-lang="java">var layout = Toolkit.dock()
     .top(header, Toolkit.length(3))
     .center(conversation)
     .bottom(Toolkit.column().add(input).add(footer), Toolkit.length(4));
 // Handles partial markdown gracefully,
-// sanitize and trim before parse, stream of markdown can be displayed safely on every frame
+// sanitize and trim before parse,
+// stream of markdown can be displayed safely on every frame
+// NEW: can also highlight source code
 var view = MarkdownView.builder().source(source)</code></pre></div></div>
 <aside class="notes"><div class="ulist"><ul><li><p>Layout can be created very Simple</p></li><li><p>MarkdownView</p></li></ul></div></aside></div></section>
+<section id="_ollama_chat_2" data-background-image="images/ollama-chat-2.png" data-background-size="contain"></section>
 <section id="_fitpub_tui"><h2>Fitpub TUI</h2><div class="slide-content"><div class="quoteblock"><blockquote><div class="paragraph"><p>FitPub is a free and open platform for sports and outdoor activities. Track your adventures, share your experiences, and connect with other active people.
 Built on open standards and powered by ActivityPub, FitPub is part of the Fediverse – a network of independent platforms that communicate with each other.</p></div></blockquote><div class="attribution">&#8212; https://fitpub.social/about</div></div>
 <div class="ulist"><ul><li><p>There is no official public API, so the TUI will break eventually (for now)</p></li></ul></div></div></section>
 <section id="_fitpub_tui_2"><h2>Fitpub TUI</h2><div class="slide-content"><div class="ulist"><ul><li><p>Stylesheets</p></li><li><p>Main/Detail View</p></li><li><p>Lists</p></li><li><p>Graphs</p></li></ul></div></div></section>
-<section id="_stylesheets"><h2>Stylesheets</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-lang="java">StyleEngine engine = StyleEngine.create();
+<section id="_stylesheets"><h2>Stylesheets</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-lang="java">var engine = StyleEngine.create();
 engine.loadStylesheet("latte", "/themes/catppuccin-latte.tcss");
 // ...
 Toolkit.text(selected.displayName() + "  @" + selected.username()).addClass("athlete")</code></pre></div></div>
@@ -593,7 +613,7 @@ ListElement&lt;Activity&gt; activityList = list()
     .scrollbar();
 
 // Events handled in controller to track selection</code></pre></div></div></div></section>
-<section id="_graphs"><h2>Graphs</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="1|2|5|6,7,8" data-lang="java">Dataset dataset = Dataset.builder().data(points)
+<section id="_graphs"><h2>Graphs</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="1|2|5|6,7,8" data-lang="java">var dataset = Dataset.builder().data(points)
     .graphType(GraphType.BAR)
     .style(dataColor).build();
 
@@ -605,8 +625,8 @@ return chart().dataset(dataset)
     .addClass(cssClass)
     .fill();</code></pre></div></div></div></section>
 <section id="_fitpub_tui_3" data-background-image="images/fitpub-latte.png" data-background-size="contain"></section>
-<section id="_lessons_learned"><h2>Lessons Learned</h2><div class="slide-content"><div class="ulist"><ul><li><p>Minimize allocations in render</p></li><li><p>Use primitive arrays over collections</p></li><li><p>Keep state classes simple</p></li><li><p>Methods for modification</p></li><li><p>Immutable state/records for thread safety</p></li></ul></div></div></section>
-<section id="_whats_missing"><h2>What&#8217;s missing?</h2><div class="slide-content"><div class="ulist"><ul><li><p>Tests</p></li><li><p>Distribution</p></li></ul></div></div></section>
+<section id="_lessons_learned"><h2>Lessons Learned</h2><div class="slide-content"><div class="ulist"><ul><li><p>Minimize allocations in render</p></li><li><p>Use primitive arrays over collections</p></li><li><p>Keep state classes simple</p></li><li><p>Methods for modification</p></li><li><p>Immutable state/records for thread safety</p></li><li><p>Get to know the existing widget library (!!)</p></li></ul></div></div></section>
+<section id="_whats_missing"><h2>What&#8217;s missing?</h2><div class="slide-content"><div class="ulist"><ul><li><p>Tests</p></li><li><p>Debugging</p></li><li><p>Distribution</p></li></ul></div></div></section>
 <section id="_testing"><h2>Testing</h2><div class="slide-content"><div class="ulist"><ul><li><p>Controllers/State classes with plain unit tests</p></li><li><p>Pilot testing for integration tests<sup class="footnote">[<span class="footnote" title="View footnote.">1</span>]</sup></p></li><li><p>Record and playback for end-2-end like verifications<sup class="footnote">[<span class="footnote" title="View footnote.">2</span>]</sup></p></li></ul></div></div><div class="footnotes"><div class="footnote">1. <a href="https://tamboui.dev/docs/main/pilot-testing.html" class="bare">https://tamboui.dev/docs/main/pilot-testing.html</a></div><div class="footnote">2. <a href="https://github.com/charmbracelet/vhs" class="bare">https://github.com/charmbracelet/vhs</a></div></div></section>
 <section id="_pilot"><h2>Pilot</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="3|5,6|8|10,11,12" data-lang="java">@Test
 void keyboardShortcutsUpdateApplicationState() throws Exception {
@@ -622,13 +642,21 @@ void keyboardShortcutsUpdateApplicationState() throws Exception {
         assertEquals(1, app.count());
     }
 }</code></pre></div></div></div></section>
+<section id="_debugging"><h2>Debugging</h2><div class="slide-content"><div class="ulist"><ul><li><p>Maybe the main "pain point"</p></li><li><p>Most IDEs do not have a real terminal (IDEA, Eclipse)</p></li><li><p>VS Code worked best with least issues</p></li></ul></div></div></section>
 <section id="_distribution"><h2>Distribution</h2><div class="slide-content"><div class="ulist"><ul><li><p>Run on the JVM</p></li><li><p>Launch examples with JBang</p></li><li><p>Build a GraalVM native executable</p></li><li><p>Publish with JReleaser<sup class="footnote">[<span class="footnote" title="View footnote.">1</span>]</sup></p></li><li><p>Keep the terminal installation experience simple</p></li></ul></div></div><div class="footnotes"><div class="footnote">1. <a href="https://jreleaser.org/" class="bare">https://jreleaser.org/</a></div></div></section>
-<section id="_conclusion"><h2>Conclusion</h2><div class="slide-content"><div class="ulist"><ul><li><p>A TUI is a user interface—not a fancy <code>println</code>, more than a CLI</p></li><li><p>Start with the Toolkit and move lower when necessary</p></li><li><p>Java now belongs in the modern terminal</p></li><li><p>TamboUI has a rich set of widgets to create nice and fast TUIs with ease</p></li></ul></div>
+<section id="_conclusion"><h2>Conclusion</h2><div class="slide-content"><div class="ulist"><ul><li><p>A TUI is a user interface - not a fancy <code>println</code>, more than a CLI</p></li><li><p>Start with the Toolkit and move lower when necessary</p></li><li><p>Java now belongs in the modern terminal</p></li><li><p>TamboUI has a rich set of widgets to create nice and fast TUIs with ease</p></li></ul></div>
 <aside class="notes"><div class="paragraph"><p>Thats why cli is not enough
 it requires more powerful framework</p></div></aside></div></section>
-<section id="_create_a_tui_for_me"><h2>Create a tui for me</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-shell hljs" data-noescape="true" data-lang="shell">jbang demos@tamboui</code></pre></div></div>
-<div class="ulist"><ul><li><p>tamboui.dev/</p></li><li><p>atomfrede.github.io/tamboui-jfn26-slides</p></li><li><p>github.com/atomfrede/tamboui-jfn26-samples</p></li></ul></div></div></section>
-<section id="_questions"><h2>Questions</h2><div class="slide-content"><div class="paragraph big"><p>In the jingle jangle JVM  I&#8217;ll come followin' you 🎶</p></div></div></section></div></div><script src="reveal/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+<section id="_stars" data-background-image="images/star-history.png" data-background-size="contain"></section>
+<section id="_create_a_tui_for_me" class="columns"><h2>Create a TUI for me</h2><div class="slide-content"><div class="listingblock column"><div class="content"><pre class="highlightjs highlight"><code class="language-shell hljs" data-noescape="true" data-lang="shell">jbang demos@tamboui</code></pre></div></div>
+<div class="ulist column"><ul><li><p>Samples ➡️</p></li><li><p>tamboui.dev</p></li><li><p>atomfrede.github.io/tamboui-jfn26-slides</p></li><li><p>github.com/atomfrede/tamboui-jfn26-samples</p></li></ul></div>
+<div class="imageblock column"><img src="images/samples-github-qr-code.png" alt="200" width="200"></div>
+<aside class="notes"><div class="paragraph"><p>Try it out with jbang and just one command
+Find my samples on github (or codeberg)</p></div></aside></div></section>
+<section id="_questions" class="columns"><h2>Questions</h2><div class="slide-content"><div class="ulist column"><ul><li><p>Questions⁉️</p></li><li><p>Slides ➡️</p></li></ul></div>
+<div class="imageblock column"><img src="images/slides-qr-code.png" alt="250" width="250"></div>
+<aside class="notes"><div class="paragraph"><p>Thanks for taking part in the last session for today
+after a long day attending another talk is great</p></div></aside></div></section></div></div><script src="reveal/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;

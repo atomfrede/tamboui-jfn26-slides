@@ -412,12 +412,12 @@ body,
 .reveal section[data-background-image] h1,
 .reveal section[data-background-image] h2,
 .reveal section[data-background-image] blockquote {
-  color: var(--ctp-text);
-  text-shadow:
+  color: var(--ctp-mauve);
+  /* text-shadow:
     -1px -1px 0 var(--ctp-crust),
     1px -1px 0 var(--ctp-crust),
     -1px 1px 0 var(--ctp-crust),
-    1px 1px 0 var(--ctp-crust);
+    1px 1px 0 var(--ctp-crust); */
 }
 
 .reveal section.bright-background {

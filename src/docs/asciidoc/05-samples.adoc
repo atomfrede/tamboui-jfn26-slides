@@ -7,31 +7,65 @@
 
 == Quarkus TUI
 
-[source,java,highlight="1,2|4,5|6"]
+[source,java,highlight="1,2,3|5,6|8,9,10"]
 ----
+@Override
+protected void onStart() {
+    reloadCatalog();
+}
 private void postToUi(Runnable action) {
     runner().runOnRenderThread(action);
 }
+//...
 Executors.newVirtualThreadPerTaskExecutor().submit(() -> {
     Catalog catalog = api.loadCatalog();
-    postToUi(() -> { extensions = catalog.extensions(); });
+    postToUi(() -> { presets = catalog.presets(); });
     }
 });
 ----
 
+== Quarkus TUI
+
+[source,java,highligth="1,2,3,4,5|6|8"]
+----
+var groupId = new TextInputState("org.acme");
+ListElement<?> presetList = list()
+    .autoScroll().scrollbar()
+    .highlightColor(Color.CYAN).highlightSymbol("› ")
+    .id("catalog-list").focusable().fill();
+//...
+textInput(groupId).id("group-id").title("Group ID")
+//...
+presetList.items(presets)
+----
+
+[.notes]
+--
+There is no select input in the toolkit api (yet)
+Only via form or manual select (no state handling)
+--
+
+[%notitle]
+== Quarkus TUI
+
+image::quarkus-tui.png[background, size=contain]
+
+
 == Ollama Chat
 
 * Streaming markdown
-* Layouting
+* Layouts
 
-[source,java,highlight=1-4|8]
+[source,java,highlight=1-4|9]
 ----
 var layout = Toolkit.dock()
     .top(header, Toolkit.length(3))
     .center(conversation)
     .bottom(Toolkit.column().add(input).add(footer), Toolkit.length(4));
 // Handles partial markdown gracefully, 
-// sanitize and trim before parse, stream of markdown can be displayed safely on every frame
+// sanitize and trim before parse, 
+// stream of markdown can be displayed safely on every frame
+// NEW: can also highlight source code
 var view = MarkdownView.builder().source(source)    
 ----
 
@@ -40,6 +74,11 @@ var view = MarkdownView.builder().source(source)
 * Layout can be created very Simple
 * MarkdownView
 --
+
+[%notitle]
+== Ollama Chat
+
+image::ollama-chat-2.png[background, size=contain]
 
 == Fitpub TUI
 
@@ -63,7 +102,7 @@ ____
 
 [source,java]
 ----
-StyleEngine engine = StyleEngine.create();
+var engine = StyleEngine.create();
 engine.loadStylesheet("latte", "/themes/catppuccin-latte.tcss");
 // ...
 Toolkit.text(selected.displayName() + "  @" + selected.username()).addClass("athlete")
@@ -97,7 +136,7 @@ ListElement<Activity> activityList = list()
 
 [source,java,highlight="1|2|5|6,7,8"]
 ----
-Dataset dataset = Dataset.builder().data(points)
+var dataset = Dataset.builder().data(points)
     .graphType(GraphType.BAR)
     .style(dataColor).build();
 
@@ -123,4 +162,5 @@ image::fitpub-latte.png[background, size=contain]
 * Keep state classes simple 
 * Methods for modification
 * Immutable state/records for thread safety
+* Get to know the existing widget library (!!)
 
