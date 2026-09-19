@@ -34,6 +34,12 @@ include::_shared/_title_footer.adoc[]
 [.big]
 Press any key to start...
 
+[.notes]
+--
+Starke Konkurrenz mit Eberhard, Sandra, Home Assistant und JVM Interna
+Okay last session, are you still awake?
+--
+
 
 == Hey Mr. TamboU(r)Ine Man
 
