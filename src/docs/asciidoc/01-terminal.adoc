@@ -26,6 +26,10 @@ It increasingly is the application.
 TUIs are not returning because developers are nostalgic.
 
 They work well for modern, tool-oriented workflows.
+
+Ever work with e.g. azure k8s? Any ui is better than that
+
+Think of kdash - build with ratatui
 --
 
 == Java, our beloved language is everywhere...
@@ -47,11 +51,15 @@ There is Picocli, but this for CLIs
 
 == ...except in the terminal
 
-[%step]
-* Go has Charm and Bubble Tea
-* Python has Textual
-* Rust has Ratatui
+* Go has Bubble Teafootnote:[https://github.com/charmbracelet/bubbletea]
+* Python has Textualfootnote:[https://textual.textualize.io/]
+* Rust has Ratatuifootnote:[https://ratatui.rs/]
 * Java has ... 🫙
+
+[.notes]
+--
+Java is just an empty jar, (picocli is something else)
+--
 
 == Pride and Prejudice
 

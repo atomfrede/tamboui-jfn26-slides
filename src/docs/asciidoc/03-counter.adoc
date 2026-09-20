@@ -14,6 +14,19 @@ Using jbang for single file and less ceremony
 * Render widgets into the Buffer
 * You can control every detail
 
+[%step]
+[quote,Uncle Ben to Peter Parker]
+____
+With great power comes great responsibility
+____
+
+
+[.notes]
+--
+The lowest level
+Create own event loop, handle unexpected exceptions, control render cycle
+--
+
 == Level 1: Immediate Mode
 
 [source,java,highlight="1,2,3,4|6|7,8,9|10|14,15,16"]
@@ -81,6 +94,7 @@ public class TuiRunnerCounter {
 * Declarative element tree 
 * Event routing
 * Action handlers
+* A lot of interface methods to overwrite -> structure
 
 == Level 3: Toolkit
 

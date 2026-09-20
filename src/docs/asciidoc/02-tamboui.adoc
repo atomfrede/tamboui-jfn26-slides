@@ -14,8 +14,7 @@ jbang demos@tamboui
 --
 Created as an experiment by gradle and redhat folks with claude as a port of Rusts Ratatui
 
-currenty in 0.4.0 or 0.5.0 snapshot as developed as open source
-
+currenty in 0.5.0 as developed as open source
 --
 
 == TamboUI
@@ -37,6 +36,8 @@ TamboUI started at the end of 2025 and became publicly available
 in early 2026.
 
 It brings established ideas from Ratatui and Textual to the JVM.
+
+Who speak french an can pronounce it correctly?
 --
 
 == API Levels
@@ -62,7 +63,7 @@ It brings established ideas from Ratatui and Textual to the JVM.
 --
 The layers are complementary.
 
-We will briefly look below the surface, but mostly look at toolkit level to get a running TUI with ease
+We will briefly look below the surface in a few minutes, but mostly look at toolkit level to get a running TUI with ease
 --
 
 == Backends
@@ -72,7 +73,7 @@ We will briefly look below the surface, but mostly look at toolkit level to get 
 |Module | Description | Requires
 
 |`tamboui-jline3-backend`
-| Reliable default on all platforms 
+| Reliable default on all platformsfootnote:[https://jline.org/]
 | Java 8+
 
 |`tamboui-panama-backend`
@@ -80,7 +81,7 @@ We will briefly look below the surface, but mostly look at toolkit level to get 
 | Java 22+
 
 |`tamboui-aesh-backend`
-| Aesh based, for SSH/Browser-hosted terminals 
+| Aeshfootnote:[https://aeshell.github.io/] based, for SSH/Browser-hosted terminals 
 | Java 8+
 
 |===
@@ -89,7 +90,7 @@ We will briefly look below the surface, but mostly look at toolkit level to get 
 --
 All are libraries for handling console input. If you want to be safe with regards to system and jdk version use jline3
 
-I tried to use panama where applicable
+I tried panama, also working well.
 --
 
 == How do rendering work?

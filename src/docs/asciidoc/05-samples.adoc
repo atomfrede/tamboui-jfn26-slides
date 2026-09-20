@@ -26,15 +26,18 @@ Executors.newVirtualThreadPerTaskExecutor().submit(() -> {
 
 == Quarkus TUI
 
-[source,java,highligth="1,2,3,4,5|6|8"]
+[source,java,highligth="1,2,4,5,6|8,9|11"]
 ----
 var groupId = new TextInputState("org.acme");
+var buildToolState = new SelectFieldState(BuildTool.MAVEN.label, BuildTool.GRADLE_KOTLIN_DSL.label, BuildTool.GRADLE.label);
+
 ListElement<?> presetList = list()
     .autoScroll().scrollbar()
     .highlightColor(Color.CYAN).highlightSymbol("› ")
     .id("catalog-list").focusable().fill();
 //...
 textInput(groupId).id("group-id").title("Group ID")
+formField("Build tool", buildToolState).id("build-tool")
 //...
 presetList.items(presets)
 ----
