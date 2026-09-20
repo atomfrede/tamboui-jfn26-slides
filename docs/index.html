@@ -454,11 +454,14 @@ all meet us in the terminal.</p></div>
 It increasingly is the application.</p></div></aside></div></section>
 <section id="_movement_towards_the_terminal"><h2>Movement towards the terminal</h2><div class="slide-content"><div class="ulist"><ul><li><p>(AI) development tools</p></li><li><p>Keyboard-first workflows</p></li><li><p>Windows has a real terminal now</p></li><li><p>Lightweight (hopefully)</p></li><li><p>Fast feedback</p></li></ul></div>
 <aside class="notes"><div class="paragraph"><p>TUIs are not returning because developers are nostalgic.</p></div>
-<div class="paragraph"><p>They work well for modern, tool-oriented workflows.</p></div></aside></div></section>
+<div class="paragraph"><p>They work well for modern, tool-oriented workflows.</p></div>
+<div class="paragraph"><p>Ever work with e.g. azure k8s? Any ui is better than that</p></div>
+<div class="paragraph"><p>Think of kdash - build with ratatui</p></div></aside></div></section>
 <section id="_java_our_beloved_language_is_everywhere"><h2>Java, our beloved language is everywhere&#8230;&#8203;</h2><div class="slide-content"><div class="ulist"><ul><li class="fragment"><p>✅ Server Backends</p></li><li class="fragment"><p>✅ Cloud</p></li><li class="fragment"><p>✅ Mobile</p></li><li class="fragment"><p>✅ Agents</p></li><li class="fragment"><p>⛔ Terminal Interfaces</p></li></ul></div>
 <aside class="notes"><div class="paragraph"><p>If not java, the jvm is everywhere, except terminal interfaces, but why?</p></div>
 <div class="paragraph"><p>There is Picocli, but this for CLIs</p></div></aside></div></section>
-<section id="_except_in_the_terminal"><h2>&#8230;&#8203;except in the terminal</h2><div class="slide-content"><div class="ulist"><ul><li class="fragment"><p>Go has Charm and Bubble Tea</p></li><li class="fragment"><p>Python has Textual</p></li><li class="fragment"><p>Rust has Ratatui</p></li><li class="fragment"><p>Java has &#8230;&#8203; 🫙</p></li></ul></div></div></section>
+<section id="_except_in_the_terminal"><h2>&#8230;&#8203;except in the terminal</h2><div class="slide-content"><div class="ulist"><ul><li><p>Go has Bubble Tea<sup class="footnote">[<span class="footnote" title="View footnote.">1</span>]</sup></p></li><li><p>Python has Textual<sup class="footnote">[<span class="footnote" title="View footnote.">2</span>]</sup></p></li><li><p>Rust has Ratatui<sup class="footnote">[<span class="footnote" title="View footnote.">3</span>]</sup></p></li><li><p>Java has &#8230;&#8203; 🫙</p></li></ul></div>
+<aside class="notes"><div class="paragraph"><p>Java is just an empty jar, (picocli is something else)</p></div></aside></div><div class="footnotes"><div class="footnote">1. <a href="https://github.com/charmbracelet/bubbletea" class="bare">https://github.com/charmbracelet/bubbletea</a></div><div class="footnote">2. <a href="https://textual.textualize.io/" class="bare">https://textual.textualize.io/</a></div><div class="footnote">3. <a href="https://ratatui.rs/" class="bare">https://ratatui.rs/</a></div></div></section>
 <section id="_pride_and_prejudice"><h2>Pride and Prejudice</h2><div class="slide-content"><div class="ulist"><ul><li><p>Java is too slow to start</p></li><li><p>Too much ceremony</p></li><li><p>Distribution is a nightmare</p></li><li><p>Too verbose!</p></li></ul></div></div></section>
 <section id="_modern_java"><h2>Modern Java</h2><div class="slide-content"><div class="ulist"><ul><li><p>Java is too slow to start! <strong>Java is fast, GraalVM even faster</strong></p></li><li><p>Too much ceremony! <strong>JBang anyone?</strong></p></li><li><p>Distribution is a nightmare! <strong>JReleaser?</strong></p></li><li><p>Too verbose! <strong>Modern Java says no (or kotlin)</strong></p></li></ul></div>
 <aside class="notes"><div class="paragraph"><p>There is no reason anymore why there should be no TUI framework in/for Java!</p></div>
@@ -466,20 +469,21 @@ It increasingly is the application.</p></div></aside></div></section>
 <section id="_tamboui" class="rebeccapurple background" data-background-image="images/tamboui_logo.png" data-background-size="contain"><div class="slide-content">
 <div class="listingblock fragment"><div class="content"><pre class="highlightjs highlight"><code class="language-none hljs" data-noescape="true">jbang demos@tamboui</code></pre></div></div>
 <aside class="notes"><div class="paragraph"><p>Created as an experiment by gradle and redhat folks with claude as a port of Rusts Ratatui</p></div>
-<div class="paragraph"><p>currenty in 0.4.0 or 0.5.0 snapshot as developed as open source</p></div></aside></div></section>
+<div class="paragraph"><p>currenty in 0.5.0 as developed as open source</p></div></aside></div></section>
 <section id="_tamboui_2"><h2>TamboUI</h2><div class="slide-content"><div class="quoteblock"><blockquote><div class="paragraph"><p>TamboUI brings the TUI paradigms seen in things like Rust&#8217;s ratatui or Go&#8217;s bubbletea to the Java ecosystem.
 TamboUI is pronounced like "tambouille" (\tɑ̃.buj) in French, or "tan-bouy".
 It provides a comprehensive set of widgets and a layout system for building rich terminal applications with modern Java idioms.</p></div></blockquote><div class="attribution">&#8212; github.com/tamboui/tamboui</div></div>
 <div class="admonitionblock note fragment"><table><tr><td class="icon"><i class="fa fa-info-circle" title="Note"></i></td><td class="content">TamboUI is still experimental and under active development.</td></tr></table></div>
 <aside class="notes"><div class="paragraph"><p>TamboUI started at the end of 2025 and became publicly available
 in early 2026.</p></div>
-<div class="paragraph"><p>It brings established ideas from Ratatui and Textual to the JVM.</p></div></aside></div></section>
+<div class="paragraph"><p>It brings established ideas from Ratatui and Textual to the JVM.</p></div>
+<div class="paragraph"><p>Who speak french an can pronounce it correctly?</p></div></aside></div></section>
 <section id="_api_levels"><h2>API Levels</h2><div class="slide-content"><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:20%"><col style="width:40%"><col style="width:40%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">API</th><th class="tableblock halign-left valign-top">Responsibility</th><th class="tableblock halign-left valign-top">Use</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Toolkit</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Declarative components, focus and event routing</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Building most applications</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">TuiRunner</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Managed event loop and terminal lifecycle</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Custom event handling without boilerplate</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Immediate Mode</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Direct rendering and complete control</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Maximum control and speed or you want to create new widgets</p></td></tr></table>
 <aside class="notes"><div class="paragraph"><p>The layers are complementary.</p></div>
-<div class="paragraph"><p>We will briefly look below the surface, but mostly look at toolkit level to get a running TUI with ease</p></div></aside></div></section>
-<section id="_backends"><h2>Backends</h2><div class="slide-content"><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:33.3333%"><col style="width:33.3334%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">Module</th><th class="tableblock halign-left valign-top">Description</th><th class="tableblock halign-left valign-top">Requires</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>tamboui-jline3-backend</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Reliable default on all platforms</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Java 8+</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>tamboui-panama-backend</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Panama (FFM) without third-party dependencies</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Java 22+</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>tamboui-aesh-backend</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Aesh based, for SSH/Browser-hosted terminals</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Java 8+</p></td></tr></table>
+<div class="paragraph"><p>We will briefly look below the surface in a few minutes, but mostly look at toolkit level to get a running TUI with ease</p></div></aside></div></section>
+<section id="_backends"><h2>Backends</h2><div class="slide-content"><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:33.3333%"><col style="width:33.3334%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">Module</th><th class="tableblock halign-left valign-top">Description</th><th class="tableblock halign-left valign-top">Requires</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>tamboui-jline3-backend</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Reliable default on all platforms<sup class="footnote">[<span class="footnote" title="View footnote.">1</span>]</sup></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Java 8+</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>tamboui-panama-backend</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Panama (FFM) without third-party dependencies</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Java 22+</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>tamboui-aesh-backend</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Aesh<sup class="footnote">[<span class="footnote" title="View footnote.">2</span>]</sup> based, for SSH/Browser-hosted terminals</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Java 8+</p></td></tr></table>
 <aside class="notes"><div class="paragraph"><p>All are libraries for handling console input. If you want to be safe with regards to system and jdk version use jline3</p></div>
-<div class="paragraph"><p>I tried to use panama where applicable</p></div></aside></div></section>
+<div class="paragraph"><p>I tried panama, also working well.</p></div></aside></div><div class="footnotes"><div class="footnote">1. <a href="https://jline.org/" class="bare">https://jline.org/</a></div><div class="footnote">2. <a href="https://aeshell.github.io/" class="bare">https://aeshell.github.io/</a></div></div></section>
 <section id="_how_do_rendering_work"><h2>How do rendering work?</h2><div class="slide-content"><div class="paragraph big"><p>Input &#8594; Event or Action &#8594; State &#8594; Render &#8594; Buffer diff &#8594; Terminal</p></div>
 <aside class="notes"><div class="paragraph"><p>Rect. Buffer of Cells. Each Cell contains a symbol (and its style)</p></div>
 <div class="paragraph"><p>Tamboui compates each frame and creates a diff an only re-renders the changes</p></div></aside></div></section>
@@ -489,7 +493,10 @@ var area = new Rect(10, 5, 60, 14)</code></pre></div></div>
 <aside class="notes"><div class="ulist"><ul><li><p>A Buffer is a 2D grid of Cells</p></li><li><p>A Cell has a symbol and a Style</p></li><li><p>Rect: x, y, width, height, used everywhere for layout</p></li><li><p>But how does it look like in real live?</p></li></ul></div></aside></div><div class="footnotes"><div class="footnote">1. <a href="https://tamboui.github.io/devoxx-france-2026" class="bare">https://tamboui.github.io/devoxx-france-2026</a></div></div></section>
 <section id="_one_counter_three_implementations"><h2>One counter. Three implementations.</h2><div class="slide-content"><div class="imageblock"><img src="images/immediate-counter.png" alt="immediate counter"></div>
 <aside class="notes"><div class="paragraph"><p>Using jbang for single file and less ceremony</p></div></aside></div></section>
-<section id="_level_1_immediate_mode"><h2>Level 1: Immediate Mode</h2><div class="slide-content"><div class="ulist"><ul><li><p>Take care of the event loop</p></li><li><p>Read terminal events</p></li><li><p>Render widgets into the Buffer</p></li><li><p>You can control every detail</p></li></ul></div></div></section>
+<section id="_level_1_immediate_mode"><h2>Level 1: Immediate Mode</h2><div class="slide-content"><div class="ulist"><ul><li><p>Take care of the event loop</p></li><li><p>Read terminal events</p></li><li><p>Render widgets into the Buffer</p></li><li><p>You can control every detail</p></li></ul></div>
+<div class="quoteblock fragment"><blockquote><div class="paragraph"><p>With great power comes great responsibility</p></div></blockquote><div class="attribution">&#8212; Uncle Ben to Peter Parker</div></div>
+<aside class="notes"><div class="paragraph"><p>The lowest level
+Create own event loop, handle unexpected exceptions, control render cycle</p></div></aside></div></section>
 <section id="_level_1_immediate_mode_2"><h2>Level 1: Immediate Mode</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="1,2,3,4|6|7,8,9|10|14,15,16" data-lang="java">try (var terminal = new Terminal&lt;&gt;(new PanamaBackend())) {
     var backend = terminal.backend();
     backend.enableRawMode(); backend.enterAlternateScreen();
@@ -521,7 +528,7 @@ var area = new Rect(10, 5, 60, 14)</code></pre></div></div>
     private void render(Frame frame) { /** ... **/}
 } // whole sample 50 LOC</code></pre></div></div>
 <aside class="notes"><div class="ulist"><ul><li><p>A lot of stuff has disappeared</p></li><li><p>State and rendering remains the sample</p></li><li><p>The whole "infrastructure" has vanished</p></li><li><p>Thread-safe, resize</p></li></ul></div></aside></div></section>
-<section id="_level_3_toolkit"><h2>Level 3: Toolkit</h2><div class="slide-content"><div class="ulist"><ul><li><p>Declarative element tree</p></li><li><p>Event routing</p></li><li><p>Action handlers</p></li></ul></div></div></section>
+<section id="_level_3_toolkit"><h2>Level 3: Toolkit</h2><div class="slide-content"><div class="ulist"><ul><li><p>Declarative element tree</p></li><li><p>Event routing</p></li><li><p>Action handlers</p></li><li><p>A lot of interface methods to overwrite &#8594; structure</p></li></ul></div></div></section>
 <section id="_level_3_toolkit_2"><h2>Level 3: Toolkit</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="1|2,3,6,7|4|9,10,11,12,13,14,15" data-lang="java">public class ToolkitCounter extends ToolkitApp {
     @Override
     protected TuiConfig configure() {
@@ -555,6 +562,10 @@ var area = new Rect(10, 5, 60, 14)</code></pre></div></div>
 View is a PURE function and renders from the State
 Publish events, controller changes state based on events
 View renders again based on new state</p></div></aside></div></section>
+<section id="_samples"><h2>Samples</h2><div class="slide-content"><div class="ulist"><ul><li><p>Build some small applications during the last weeks</p></li><li><p>Different features used</p></li></ul></div>
+<aside class="notes"><div class="paragraph"><p>Yes, parts are coming from genAI, nice experiment how well they can handle pretty "new" stuff
+Answer, it depends, helped with e.g. api access to webservices (easy) but less when it comes to
+tamboui (first, second shot a lot of custom made "widgets" instead of build-ins)</p></div></aside></div></section>
 <section id="_quakus_tui"><h2>Quakus TUI</h2><div class="slide-content"><div class="ulist"><ul><li><p>Forms and editable fields</p></li><li><p>Search and filtered lists</p></li><li><p>Foxus and keyboard navigation</p></li><li><p>Background network or file operations</p></li></ul></div></div></section>
 <section id="_quarkus_tui"><h2>Quarkus TUI</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="1,2,3|5,6|8,9,10" data-lang="java">@Override
 protected void onStart() {
@@ -570,12 +581,15 @@ Executors.newVirtualThreadPerTaskExecutor().submit(() -&gt; {
     }
 });</code></pre></div></div></div></section>
 <section id="_quarkus_tui_2"><h2>Quarkus TUI</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-lang="java">var groupId = new TextInputState("org.acme");
+var buildToolState = new SelectFieldState(BuildTool.MAVEN.label, BuildTool.GRADLE_KOTLIN_DSL.label, BuildTool.GRADLE.label);
+
 ListElement&lt;?&gt; presetList = list()
     .autoScroll().scrollbar()
     .highlightColor(Color.CYAN).highlightSymbol("› ")
     .id("catalog-list").focusable().fill();
 //...
 textInput(groupId).id("group-id").title("Group ID")
+formField("Build tool", buildToolState).id("build-tool")
 //...
 presetList.items(presets)</code></pre></div></div>
 <aside class="notes"><div class="paragraph"><p>There is no select input in the toolkit api (yet)
@@ -589,18 +603,26 @@ Only via form or manual select (no state handling)</p></div></aside></div></sect
 // Handles partial markdown gracefully,
 // sanitize and trim before parse,
 // stream of markdown can be displayed safely on every frame
-// NEW: can also highlight source code
+// NEW 0.5.0: can also highlight source code
 var view = MarkdownView.builder().source(source)</code></pre></div></div>
-<aside class="notes"><div class="ulist"><ul><li><p>Layout can be created very Simple</p></li><li><p>MarkdownView</p></li></ul></div></aside></div></section>
+<aside class="notes"><div class="ulist"><ul><li><p>Layout can be created very Simple</p></li><li><p>There is also a flexbox inspired layout</p></li><li><p>MarkdownView</p></li></ul></div></aside></div></section>
 <section id="_ollama_chat_2" data-background-image="images/ollama-chat-2.png" data-background-size="contain"></section>
 <section id="_fitpub_tui"><h2>Fitpub TUI</h2><div class="slide-content"><div class="quoteblock"><blockquote><div class="paragraph"><p>FitPub is a free and open platform for sports and outdoor activities. Track your adventures, share your experiences, and connect with other active people.
 Built on open standards and powered by ActivityPub, FitPub is part of the Fediverse – a network of independent platforms that communicate with each other.</p></div></blockquote><div class="attribution">&#8212; https://fitpub.social/about</div></div>
 <div class="ulist"><ul><li><p>There is no official public API, so the TUI will break eventually (for now)</p></li></ul></div></div></section>
-<section id="_fitpub_tui_2"><h2>Fitpub TUI</h2><div class="slide-content"><div class="ulist"><ul><li><p>Stylesheets</p></li><li><p>Main/Detail View</p></li><li><p>Lists</p></li><li><p>Graphs</p></li></ul></div></div></section>
-<section id="_stylesheets"><h2>Stylesheets</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-lang="java">var engine = StyleEngine.create();
+<section id="_fitpub_tui_2"><h2>Fitpub TUI</h2><div class="slide-content"><div class="ulist"><ul><li><p>Stylesheets (.tcss)</p></li><li><p>Main/Detail View</p></li><li><p>More lists</p></li><li><p>Graphs</p></li><li><p>More event handling</p></li></ul></div>
+<aside class="notes"><div class="paragraph"><p>Stylesheets from pythons textual (thats the t)
+Graphs have been tricky, as it looked like "sparklines" at first</p></div>
+<div class="paragraph"><p>Not all events can be handled inside toolkit,
+resize events only directly on the backend -&#8594; Get the size for responsive layout</p></div></aside></div></section>
+<section id="_stylesheets"><h2>Stylesheets</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="1,2|4,5|7,8" data-lang="java">var engine = StyleEngine.create();
 engine.loadStylesheet("latte", "/themes/catppuccin-latte.tcss");
 // ...
-Toolkit.text(selected.displayName() + "  @" + selected.username()).addClass("athlete")</code></pre></div></div>
+Toolkit.text(selected.displayName() + "  @" + selected.username())
+.addClass("athlete")
+// ...
+theme = theme.next(); // simple wrapper around different theme names/stylesheets
+styleEngine.setActiveStylesheet(theme.stylesheetName());</code></pre></div></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-css hljs" data-noescape="true" data-lang="css">$mauve: #8839ef;
 .athlete {
     color: $mauve;

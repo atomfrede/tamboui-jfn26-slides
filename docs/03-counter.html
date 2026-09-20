@@ -415,7 +415,10 @@ ul.byline li + li {
 }
 </style></head><body><div class="reveal"><div class="slides"><section id="_one_counter_three_implementations"><h2>One counter. Three implementations.</h2><div class="slide-content"><div class="imageblock"><img src="immediate-counter.png" alt="immediate counter"></div>
 <aside class="notes"><div class="paragraph"><p>Using jbang for single file and less ceremony</p></div></aside></div></section>
-<section id="_level_1_immediate_mode"><h2>Level 1: Immediate Mode</h2><div class="slide-content"><div class="ulist"><ul><li><p>Take care of the event loop</p></li><li><p>Read terminal events</p></li><li><p>Render widgets into the Buffer</p></li><li><p>You can control every detail</p></li></ul></div></div></section>
+<section id="_level_1_immediate_mode"><h2>Level 1: Immediate Mode</h2><div class="slide-content"><div class="ulist"><ul><li><p>Take care of the event loop</p></li><li><p>Read terminal events</p></li><li><p>Render widgets into the Buffer</p></li><li><p>You can control every detail</p></li></ul></div>
+<div class="quoteblock fragment"><blockquote><div class="paragraph"><p>With great power comes great responsibility</p></div></blockquote><div class="attribution">&#8212; Uncle Ben to Peter Parker</div></div>
+<aside class="notes"><div class="paragraph"><p>The lowest level
+Create own event loop, handle unexpected exceptions, control render cycle</p></div></aside></div></section>
 <section id="_level_1_immediate_mode_2"><h2>Level 1: Immediate Mode</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-java" data-lang="java">try (var terminal = new Terminal&lt;&gt;(new PanamaBackend())) {
     var backend = terminal.backend();
     backend.enableRawMode(); backend.enterAlternateScreen();
@@ -447,7 +450,7 @@ ul.byline li + li {
     private void render(Frame frame) { /** ... **/}
 } // whole sample 50 LOC</code></pre></div></div>
 <aside class="notes"><div class="ulist"><ul><li><p>A lot of stuff has disappeared</p></li><li><p>State and rendering remains the sample</p></li><li><p>The whole "infrastructure" has vanished</p></li><li><p>Thread-safe, resize</p></li></ul></div></aside></div></section>
-<section id="_level_3_toolkit"><h2>Level 3: Toolkit</h2><div class="slide-content"><div class="ulist"><ul><li><p>Declarative element tree</p></li><li><p>Event routing</p></li><li><p>Action handlers</p></li></ul></div></div></section>
+<section id="_level_3_toolkit"><h2>Level 3: Toolkit</h2><div class="slide-content"><div class="ulist"><ul><li><p>Declarative element tree</p></li><li><p>Event routing</p></li><li><p>Action handlers</p></li><li><p>A lot of interface methods to overwrite &#8594; structure</p></li></ul></div></div></section>
 <section id="_level_3_toolkit_2"><h2>Level 3: Toolkit</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-java" data-lang="java">public class ToolkitCounter extends ToolkitApp {
     @Override
     protected TuiConfig configure() {
