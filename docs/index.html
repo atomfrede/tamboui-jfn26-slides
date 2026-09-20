@@ -434,7 +434,7 @@ ul.byline li + li {
         document.querySelector('.reveal').appendChild(document.querySelector('.footer'));
 	})
 </script></div></section>
-<section id="_are_you_still_awake"><div class="slide-content"><div class="paragraph big"><p>Press any key to start&#8230;&#8203;</p></div>
+<section id="_are_you_still_awake"><div class="slide-content"><div class="paragraph big"><p>Press any key to start&#8230;&#8203;#️⃣ ☕</p></div>
 <aside class="notes"><div class="paragraph"><p>Starke Konkurrenz mit Eberhard, Sandra, Home Assistant und JVM Interna
 Okay last session, are you still awake?</p></div></aside></div></section>
 <section id="_hey_mr_tambourine_man"><h2>Hey Mr. TamboU(r)Ine Man</h2><div class="slide-content"><div class="paragraph"><p>Hey Mr. TamboU(r)Ine man, create a TUI for me</p></div>
@@ -444,7 +444,8 @@ Okay last session, are you still awake?</p></div></aside></div></section>
 <section id="_about_me" class="columns"><h2>About Me</h2><div class="slide-content"><div class="ulist column is-two-thirds"><ul><li><p>👨‍👩‍👧‍👦 🏊‍♂️ 🚴 🏃</p></li><li><p>Software Architect <a href="https://www.adesso.de/de/">@adesso SE</a></p></li><li><p><a href="https://jug-pb.gitlab.io/">JUG Paderborn</a> Co-Organizer</p></li><li><p><a href="https://www.jhipster.tech/">JHipster</a> Board Member</p></li></ul></div>
 <div class="paragraph column"><p><span class="image"><img src="images/duke-pb.png" alt="duke pb" width="200"></span>
 <span class="image"><img src="images/jhipster.png" alt="jhipster" width="200"></span></p></div>
-<aside class="notes"></aside></div></section>
+<aside class="notes"><div class="paragraph"><p>Sohn auch gerade auf Klassenfahrt, seit 4 Jahren bisschen Triathlon und mehr Sport
+Ansonsten noch Schwimmtrainer</p></div></aside></div></section>
 <section id="_agenda"><h2>Agenda</h2><div class="slide-content"><div class="ulist"><ul><li><p>Java, in the terminal?</p></li><li><p>TamboUI</p></li><li><p>Api Levels</p></li><li><p>Features</p></li><li><p>Samples</p></li><li><p>Shipping &amp; Conclusion</p></li></ul></div></div></section>
 <section id="_java_in_the_terminal"><h2>Java, in the terminal?</h2></section>
 <section id="_where_do_developers_live" data-background-image="images/terminal.png" data-background-size="contain"><h2>Where do developers live?</h2><div class="slide-content">
@@ -627,7 +628,7 @@ styleEngine.setActiveStylesheet(theme.stylesheetName());</code></pre></div></div
 .athlete {
     color: $mauve;
 }</code></pre></div></div></div></section>
-<section id="_lists"><h2>Lists</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="2|3|4,5,6" data-lang="java">// Maybe updated and postedOnRenderThread to load more activities
+<section id="_lists"><h2>Lists</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="2|4,5,6" data-lang="java">// Maybe updated and postedOnRenderThread to load more activities
 List&lt;Activity&gt; activities = controller.activities();
 
 ListElement&lt;Activity&gt; activityList = list()
@@ -636,7 +637,8 @@ ListElement&lt;Activity&gt; activityList = list()
     .autoScroll()
     .scrollbar();
 
-// Events handled in controller to track selection</code></pre></div></div></div></section>
+// Events handled in controller to track selection</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>ListElement is very powerful and display arbitraty elements inside a list</p></div></aside></div></section>
 <section id="_graphs"><h2>Graphs</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="1|2|5|6,7,8" data-lang="java">var dataset = Dataset.builder().data(points)
     .graphType(GraphType.BAR)
     .style(dataColor).build();
@@ -666,7 +668,7 @@ void keyboardShortcutsUpdateApplicationState() throws Exception {
         assertEquals(1, app.count());
     }
 }</code></pre></div></div></div></section>
-<section id="_debugging"><h2>Debugging</h2><div class="slide-content"><div class="ulist"><ul><li><p>Maybe the main "pain point"</p></li><li><p>Most IDEs do not have a real terminal (IDEA, Eclipse)</p></li><li><p>VS Code worked best with least issues</p></li></ul></div></div></section>
+<section id="_debugging"><h2>Debugging</h2><div class="slide-content"><div class="ulist"><ul><li><p>Maybe the main "pain point" 😭</p></li><li><p>Most IDEs do not have a real terminal (IDEA, Eclipse)</p></li><li><p>VS Code worked best with least issues</p></li></ul></div></div></section>
 <section id="_distribution"><h2>Distribution</h2><div class="slide-content"><div class="ulist"><ul><li><p>Run on the JVM</p></li><li><p>Launch examples with JBang</p></li><li><p>Build a GraalVM native executable</p></li><li><p>Publish with JReleaser<sup class="footnote">[<span class="footnote" title="View footnote.">1</span>]</sup></p></li><li><p>Keep the terminal installation experience simple</p></li></ul></div></div><div class="footnotes"><div class="footnote">1. <a href="https://jreleaser.org/" class="bare">https://jreleaser.org/</a></div></div></section>
 <section id="_conclusion"><h2>Conclusion</h2><div class="slide-content"><div class="ulist"><ul><li><p>A TUI is a user interface - not a fancy <code>println</code>, more than a CLI</p></li><li><p>Start with the Toolkit and move lower when necessary</p></li><li><p>Java now belongs in the modern terminal</p></li><li><p>TamboUI has a rich set of widgets to create nice and fast TUIs with ease</p></li></ul></div>
 <aside class="notes"><div class="paragraph"><p>Thats why cli is not enough

@@ -148,7 +148,7 @@ $mauve: #8839ef;
 
 == Lists
 
-[source,java,highlight="2|3|4,5,6"]
+[source,java,highlight="2|4,5,6"]
 ----
 // Maybe updated and postedOnRenderThread to load more activities
 List<Activity> activities = controller.activities();
@@ -161,6 +161,12 @@ ListElement<Activity> activityList = list()
 
 // Events handled in controller to track selection    
 ----
+
+[.notes]
+--
+ListElement is very powerful and display arbitraty elements inside a list 
+
+--
 
 == Graphs
 

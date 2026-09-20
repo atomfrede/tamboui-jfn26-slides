@@ -32,7 +32,7 @@ include::_shared/_title_footer.adoc[]
 == Are you still awake?
 
 [.big]
-Press any key to start...
+Press any key to start...#️⃣ ☕
 
 [.notes]
 --
@@ -69,7 +69,8 @@ image:jhipster.png[width=200]
 
 [.notes]
 --
-
+Sohn auch gerade auf Klassenfahrt, seit 4 Jahren bisschen Triathlon und mehr Sport
+Ansonsten noch Schwimmtrainer
 --
 
 == Agenda
