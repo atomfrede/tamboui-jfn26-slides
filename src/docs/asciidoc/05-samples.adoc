@@ -1,3 +1,16 @@
+== Samples
+
+* Build some small applications during the last weeks
+* Different features used 
+
+[.notes]
+--
+Yes, parts are coming from genAI, nice experiment how well they can handle pretty "new" stuff
+Answer, it depends, helped with e.g. api access to webservices (easy) but less when it comes to 
+tamboui (first, second shot a lot of custom made "widgets" instead of build-ins)
+--
+
+
 == Quakus TUI
 
 * Forms and editable fields
@@ -68,13 +81,14 @@ var layout = Toolkit.dock()
 // Handles partial markdown gracefully, 
 // sanitize and trim before parse, 
 // stream of markdown can be displayed safely on every frame
-// NEW: can also highlight source code
+// NEW 0.5.0: can also highlight source code
 var view = MarkdownView.builder().source(source)    
 ----
 
 [.notes]
 --
 * Layout can be created very Simple
+* There is also a flexbox inspired layout
 * MarkdownView
 --
 
@@ -95,20 +109,33 @@ ____
 
 == Fitpub TUI
 
-* Stylesheets
+* Stylesheets (.tcss)
 * Main/Detail View
-* Lists
+* More lists
 * Graphs
+* More event handling
 
+[.notes]
+--
+Stylesheets from pythons textual (thats the t)
+Graphs have been tricky, as it looked like "sparklines" at first 
+
+Not all events can be handled inside toolkit, 
+resize events only directly on the backend --> Get the size for responsive layout
+--
 
 == Stylesheets
 
-[source,java]
+[source,java,highlight="1,2|4,5|7,8"]
 ----
 var engine = StyleEngine.create();
 engine.loadStylesheet("latte", "/themes/catppuccin-latte.tcss");
 // ...
-Toolkit.text(selected.displayName() + "  @" + selected.username()).addClass("athlete")
+Toolkit.text(selected.displayName() + "  @" + selected.username())
+.addClass("athlete")
+// ...
+theme = theme.next(); // simple wrapper around different theme names/stylesheets
+styleEngine.setActiveStylesheet(theme.stylesheetName());
 ----
 
 [source,css]
