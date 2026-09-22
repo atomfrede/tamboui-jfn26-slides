@@ -39,7 +39,7 @@ Executors.newVirtualThreadPerTaskExecutor().submit(() -> {
 
 == Quarkus TUI
 
-[source,java,highligth="1,2,4,5,6|8,9|11"]
+[source,java,highlight="1,2,4,5,6|8,9|11"]
 ----
 var groupId = new TextInputState("org.acme");
 var buildToolState = new SelectFieldState(BuildTool.MAVEN.label, BuildTool.GRADLE_KOTLIN_DSL.label, BuildTool.GRADLE.label);

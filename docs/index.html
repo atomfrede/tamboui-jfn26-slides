@@ -581,7 +581,7 @@ Executors.newVirtualThreadPerTaskExecutor().submit(() -&gt; {
     postToUi(() -&gt; { presets = catalog.presets(); });
     }
 });</code></pre></div></div></div></section>
-<section id="_quarkus_tui_2"><h2>Quarkus TUI</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-lang="java">var groupId = new TextInputState("org.acme");
+<section id="_quarkus_tui_2"><h2>Quarkus TUI</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-java hljs" data-noescape="true" data-line-numbers="1,2,4,5,6|8,9|11" data-lang="java">var groupId = new TextInputState("org.acme");
 var buildToolState = new SelectFieldState(BuildTool.MAVEN.label, BuildTool.GRADLE_KOTLIN_DSL.label, BuildTool.GRADLE.label);
 
 ListElement&lt;?&gt; presetList = list()
