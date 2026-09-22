@@ -36,6 +36,7 @@ Think of kdash - build with ratatui
 
 [%step]
 * ✅ Server Backends
+* ✅ Web Frontends
 * ✅ Cloud  
 * ✅ Mobile 
 * ✅ Agents
