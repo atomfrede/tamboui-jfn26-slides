@@ -15,7 +15,7 @@ tamboui (first, second shot a lot of custom made "widgets" instead of build-ins)
 
 * Forms and editable fields
 * Search and filtered lists
-* Foxus and keyboard navigation
+* Focus and keyboard navigation
 * Background network or file operations
 
 == Quarkus TUI

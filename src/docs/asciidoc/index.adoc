@@ -11,7 +11,7 @@
 :source-highlighter: highlight.js
 :revealjs_customtheme: css/catppuccin-latte.css
 :highlightjs-theme: highlight/styles/catppuccin-latte.css
-:revealjs_totalTime: 3000
+:revealjs_totalTime: 2799
 :highlightjsdir: highlight
 :icons: font
 :imagesdir: images/
